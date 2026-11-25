@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f4f7fb;
+  background: #101827;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(47, 115, 180, .22), transparent 32rem),
+    radial-gradient(circle at 90% 85%, rgba(22, 163, 142, .16), transparent 30rem),
+    #101827;
+}
+
+button { font: inherit; }
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.game-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 36px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 28px;
+  background: rgba(22, 34, 52, .92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+}
+
+.header { text-align: center; }
+
+.eyebrow {
+  display: block;
+  color: #66d9c4;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+h1 {
+  margin: 10px 0 6px;
+  font: 700 clamp(2rem, 7vw, 2.5rem)/1.15 "Space Grotesk", sans-serif;
+  letter-spacing: -.04em;
+}
+
+.header p {
+  margin: 0;
+  color: #aab7c8;
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+.status {
+  margin: 24px 0 18px;
+  min-height: 52px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(102, 217, 196, .22);
+  border-radius: 12px;
+  background: rgba(102, 217, 196, .08);
+  color: #8ce8d7;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.status-finished {
+  border-color: rgba(255, 199, 102, .35);
+  background: rgba(255, 199, 102, .09);
+  color: #ffd27f;
+}
+
+.board {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 16px;
+  background: #202f45;
+  color: #f4f7fb;
+  font: 700 clamp(2.4rem, 10vw, 3.5rem)/1 "Space Grotesk", sans-serif;
+  user-select: none;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.square:not(:disabled):hover {
+  border-color: #66d9c4;
+  background: #293e57;
+}
+
+.square:focus-visible, .reset-button:focus-visible {
+  outline: 3px solid #ffd27f;
+  outline-offset: 3px;
+}
+
+.square-x { color: #67d9c4; }
+.square-o { color: #ffbd70; }
+.square-winner {
+  border-color: #ffd27f;
+  background: rgba(255, 210, 127, .16);
+  box-shadow: 0 0 20px rgba(255, 210, 127, .18);
+}
+.square:disabled { cursor: default; opacity: 1; }
+
+.reset-button {
+  width: 100%;
+  height: 48px;
+  margin-top: 22px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: #66d9c4;
+  color: #10202c;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .15s ease, background-color .15s ease;
+}
+
+.reset-button:hover {
+  filter: brightness(1.08);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+  color: #93a2b5;
+  font-size: .78rem;
+}
+
+.footer strong { color: #66d9c4; }
+
+@media (max-width: 420px) {
+  .game-card { padding: 24px 18px; border-radius: 22px; }
+  .square { border-radius: 12px; }
+}
